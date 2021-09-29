@@ -1,0 +1,3 @@
+﻿  RPN calc.cpp
+C:\Users\trenton.schwartz\source\repos\RPN calc\RPN calc\RPN calc.cpp(16,7): warning C4101: 'tokens': unreferenced local variable
+  RPN calc.vcxproj -> C:\Users\trenton.schwartz\source\repos\RPN calc\Debug\RPN calc.exe

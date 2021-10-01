@@ -5,6 +5,7 @@
 #include "stddefine.h"
 int getPrec(char op);
 void writeQueue(queue<char> qu);
+void writeStack(stack<char> st);
 
 
 int main()
@@ -47,18 +48,24 @@ int main()
 
 	for (int i = 0; i < str.length(); i++)
 	{
+		cout << "Token: " << i << " = " << tokens[i] << endl;
+		cout << "Stack value = ";
+		writeStack(st);
+		cout << "Queue value = ";
+		writeQueue(qu);
+		
 		switch (tokens[i])
 		{
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-		case 9:
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
 			qu.push(tokens[i]);
 			break;
 		case '+':
@@ -71,6 +78,7 @@ int main()
 				qu.push(st.top());
 				st.pop();
 			}
+			
 			st.push(tokens[i]);
 			break;
 		case '(':
@@ -82,6 +90,7 @@ int main()
 				qu.push(st.top());
 				st.pop();
 			}
+
 			st.pop();
 			break;
 
@@ -94,8 +103,6 @@ int main()
 		qu.push(st.top());
 		st.pop();
 	}
-
-	writeQueue(qu);
 }
 
 int getPrec(char op)
@@ -108,6 +115,8 @@ int getPrec(char op)
 		case '/':
 		case '*':
 			return 2;
+		default:
+			return 0;
 	}
 }
 
@@ -118,4 +127,19 @@ void writeQueue(queue<char> qu)
 		cout << qu.front() << " ";
 		qu.pop();
 	}
+	cout << endl;
 }
+
+void writeStack(stack<char> st)
+{
+	while (!st.empty())
+	{
+		cout << st.top() << " ";
+		st.pop();
+	}
+	cout << endl;
+}
+
+
+
+
